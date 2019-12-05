@@ -7,26 +7,19 @@
 using namespace std;
 #include "Data.h"
 
-template<typename T>
-void swap(T &a, T &b) {
-    T t = a;
-    a = b;
-    b = t;
-}
 // A template function to implement bubble sort.  Code in PowerPoints.
 // We can use this for any data type that supports 
 // comparison operator < and swap works for it.
 template<typename T>
 void bubbleSort(vector <T>& a, int size) {
     int i, j;
-    bool swapped;
+    bool swapped;//boolean for swap
     for (i = 0; i < size - 1; i++) {
         swapped = false;
         // Last i elements are already in place
         for (j = 0; j < size - i - 1; j++) {
             if (a[j] > a[j + 1]) {
-                //swap(arr.at(j),arr.at(j+1));
-                //swap(arr[j], arr[j + 1]);
+                //swaps values
                 T temp=a.at(j);
                 a.at(j)=a.at(j+1);
                 a.at(j+1)=temp;
@@ -85,7 +78,7 @@ int Partition(vector<T>& numbers, int i, int k) {
 
     return h;
 }
-
+//quick sort code from zybooks and changed array to vector/template format
 template <typename T>
 void Quicksort(vector<T>& numbers, int i, int k) {
     int j;
@@ -171,7 +164,7 @@ void mergeSort(vector<T>& a, vector<T>& tmp, int left, int right) {
 
 int main() {
 
-    Data computerUsageData;
+
 
     ifstream inFile;
     ofstream outFile;
@@ -219,10 +212,10 @@ int main() {
         duration2=stoi(duration);
         codeP2=stoi(codeP);
 
-        Data usage2=Data(caseID2,activity2, duration2,codeP2);
+        Data computerUsageData=Data(caseID2,activity2, duration2,codeP2);
 
         //pushes Data member onto stack and queue
-        dataV.push_back(usage2);
+        dataV.push_back(computerUsageData);
 
         i++;
     }
