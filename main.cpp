@@ -7,30 +7,36 @@
 using namespace std;
 #include "Data.h"
 
+template<typename T>
+void swap(T &a, T &b) {
+    T t = a;
+    a = b;
+    b = t;
+}
 // A template function to implement bubble sort.  Code in PowerPoints.
 // We can use this for any data type that supports 
 // comparison operator < and swap works for it.
-template <class T> 
-void bubbleSort(vector<T>& a, int n) { 
-    cout<<"in bubble"<< n<< endl;
-    for (int i = 0; i < n - 1; i++) 
-        for (int j = 0; i < n-1-i; j++) {
-
-            if (a.at(j) < a.at(j+1)) {
-                swap(a.at(j),a.at(j+1));
-           // cout<<"in bubble insdie if"<<endl;
-            //T temp=a.at(j);
-            //a.at(j)=a.at(j+1);
-            //a.at(j+1)=temp;
-          //  cout<<"here";
-
-            }
-       // cout<<"in bubble outside if"<<endl;
+template<typename T>
+void bubbleSort(vector <T>& a, int size) {
+    int i, j;
+    bool swapped;
+    for (i = 0; i < size - 1; i++) {
+        swapped = false;
+        // Last i elements are already in place
+        for (j = 0; j < size - i - 1; j++) {
+            if (a[j] > a[j + 1]) {
+                //swap(arr.at(j),arr.at(j+1));
+                //swap(arr[j], arr[j + 1]);
+                T temp=a.at(j);
+                a.at(j)=a.at(j+1);
+                a.at(j+1)=temp;
+                swapped = true;
                 }
- //cout<<"done with bubble";
+            }
+        }
 }
 //got code from zybooks and changed array to vector/template format for partition and quick sort
-template <class T>
+template <typename T>
 int Partition(vector<T>& numbers, int i, int k) {
     int l;
     int h;
@@ -80,7 +86,7 @@ int Partition(vector<T>& numbers, int i, int k) {
     return h;
 }
 
-template <class T>
+template <typename T>
 void Quicksort(vector<T>& numbers, int i, int k) {
     int j;
 
@@ -100,7 +106,7 @@ void Quicksort(vector<T>& numbers, int i, int k) {
     Quicksort(numbers, j + 1, k);
 }
 //code from zybooks
-template <class T>
+template <typename T>
 void SelectionSort(vector<T>& numbers, int numbersSize) {
     int i;
     int j;
@@ -125,7 +131,7 @@ void SelectionSort(vector<T>& numbers, int numbersSize) {
     }
 }
 //code from my lab 3
-template <class T>
+template <typename T>
 void mergeSortedLists(vector<T>& a, vector<T>& tmp, int leftPos, int rightPos, int rightEnd) {
     int leftEnd = rightPos - 1;
     int tempPos = leftPos;
@@ -151,7 +157,7 @@ void mergeSortedLists(vector<T>& a, vector<T>& tmp, int leftPos, int rightPos, i
         a[rightEnd] = tmp[rightEnd];
     }
 }
-template <class T>
+template <typename T>
 void mergeSort(vector<T>& a, vector<T>& tmp, int left, int right) {
     if (left < right) {
         int center = ( left + right ) / 2;
@@ -248,7 +254,6 @@ int main() {
     clock_t start_BubbleSort = clock();
     //bubble sort on data
     bubbleSort(dataV_B, dataV_B.size()-1);
-    cout<<"bug"<<endl;
     clock_t end_BubbleSort = clock();
     double elapsed_BubbleSort = double(end_BubbleSort - start_BubbleSort) / CLOCKS_PER_SEC;
     cout <<"Elapsed Time Data Bubble sort : "<< elapsed_BubbleSort <<endl;
@@ -260,7 +265,7 @@ int main() {
     double elapsed_BubbleSort2 = double(end_BubbleSort2 - start_BubbleSort2) / CLOCKS_PER_SEC;
     cout <<"Elapsed Time Data Bubble sort again : "<< elapsed_BubbleSort2 <<endl;
 
-    /*//selection sort
+    //selection sort
     clock_t start_SelectionSort = clock();
     //selection sort on data
     SelectionSort(dataV_S,dataV_S.size()-1);
@@ -365,7 +370,7 @@ int main() {
     mergeSort(intV_M, intV_tempM, 0, intV_M.size()-1);
     clock_t end_intMergeSort2 = clock();
     double elapsed_intMergeSort2 = double(end_intMergeSort2 - start_intMergeSort2) / CLOCKS_PER_SEC;
-    cout <<"Elapsed Time int Merge sort again : "<< elapsed_intMergeSort2 <<endl;*/
+    cout <<"Elapsed Time int Merge sort again : "<< elapsed_intMergeSort2 <<endl;
 
 
 

@@ -30,8 +30,6 @@ public:
 
 private:
 
-    //bool operator>(Data d);
-    // bool operator<(Data d);
 };
 
 

@@ -26,7 +26,7 @@ bool Data::operator>( Data& d1){
 
 }
 bool Data::operator<( Data& d1){
-    cout<<"<";
+
     return duration24Hours<d1.getDuration();
 
 }
@@ -40,7 +40,7 @@ bool Data:: operator>=( Data& d1){
 
 }
 Data& Data::operator=( Data& c){
-    //cout<<"="<<"\n";
+
     Data temp(c);
     swap(temp.caseID,caseID);
     swap(temp.activity,activity);
