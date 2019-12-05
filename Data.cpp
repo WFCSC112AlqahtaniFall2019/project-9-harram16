@@ -39,7 +39,7 @@ bool Data:: operator>=( Data& d1){
     return duration24Hours>=d1.getDuration();
 
 }
-/*Data& Data::operator=( Data& c){
+Data& Data::operator=( Data& c){
     //cout<<"="<<"\n";
     Data temp(c);
     swap(temp.caseID,caseID);
@@ -48,7 +48,7 @@ bool Data:: operator>=( Data& d1){
     swap(temp.codeP,codeP);
 
     return *this;
-}*/
+}
 
 ostream& operator<<(ostream& os, const Data data){
     os<< "24 Hour Durationon Computer: "<< data.duration24Hours<<"  Case Id: "<<data.caseID<<"  Code: "<<data.codeP<<"  Computer Activity: "<<data.activity<<endl;
