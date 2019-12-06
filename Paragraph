@@ -6,5 +6,5 @@ argument for average case complexity.  You do not need to analyze the Quick and 
 
 The complexity of Bubble sort is at best is O(N) and worst O(N^2). The complexity of Selection sort is best
 O(N^2) and O(N^2). You can see this also in the run times of my program because the second time around, on a
-sorted list, bubble sort's time is considerable lower on the second one. Whereas, the selction sort's time does
-not improve and stays around the same run time becuase of the complexity for best and worst case.
+sorted list, bubble sort's time is considerable lower on the second one. Whereas, the selection sort's time does
+not improve and stays around the same run time because of the complexity for best and worst case.
